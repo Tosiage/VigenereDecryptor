@@ -1,4 +1,5 @@
-coincidenceList = [];
+coincidenceList = []
+approxKeyLength = 0
 
 def compare(a, b):
     coincidences = 0
@@ -18,11 +19,12 @@ def findCoincidences(filePath):
 
     while i > 0:
         f = clength - i
+        #print(i,f)
         c1 = ci[:i]
         c2 = ci[f:]
-        # print(c1)
-        # print(c2)
-        # print(compare(c1, c2))
+        #print(c1)
+        #print(c2)
+        #print(compare(c1, c2))
         coincidenceList.append(compare(c1, c2))
         i = i - 1
 
@@ -30,4 +32,7 @@ def findCoincidences(filePath):
     print(coincidenceList)
 
 
-findCoincidences('crypto.204cfa7f.txt')
+
+findCoincidences('testCipher.txt')
+approxKeyLength = coincidenceList.index(max(coincidenceList)) + 1
+print(approxKeyLength)
